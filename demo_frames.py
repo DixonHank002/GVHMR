@@ -314,3 +314,9 @@ if __name__ == "__main__":
     # if not Path(paths.incam_global_horiz_video).exists():
     #     Log.info("[Merge Videos]")
     #     merge_videos_horizontal([paths.incam_video, paths.global_video], paths.incam_global_horiz_video)
+
+    # ===== Delete temp video ===== #
+    temp_video_path = Path(cfg.video_name)
+    if temp_video_path.exists():
+        temp_video_path.unlink()  
+        Log.info(f"Deleted temporary file: {temp_video_path}")
