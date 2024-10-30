@@ -1,7 +1,9 @@
 .vscode
 .hydra
+.data
 inputs
 outputs
+debug
 
 # All file or folders start with tmp will be ignored
 tmp*  
