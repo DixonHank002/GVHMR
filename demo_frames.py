@@ -60,7 +60,7 @@ def parse_args_to_cfg():
     # Cfg
     with initialize_config_module(version_base="1.3", config_module=f"hmr4d.configs"):
         overrides = [
-            f"video_name={video_path.stem}",
+            f"video_name={frame_path.stem}",
             f"static_cam={args.static_cam}",
             f"verbose={args.verbose}",
         ]
@@ -85,6 +85,11 @@ def parse_args_to_cfg():
             writer.write_frame(img)
         writer.close()
         reader.close()
+    
+    # ===== Delete temp video ===== #
+    if video_path.exists():
+        video_path.unlink()  
+        Log.info(f"Deleted temporary video: {video_path}")
 
     return cfg
 
@@ -315,8 +320,4 @@ if __name__ == "__main__":
     #     Log.info("[Merge Videos]")
     #     merge_videos_horizontal([paths.incam_video, paths.global_video], paths.incam_global_horiz_video)
 
-    # ===== Delete temp video ===== #
-    temp_video_path = Path(cfg.video_name)
-    if temp_video_path.exists():
-        temp_video_path.unlink()  
-        Log.info(f"Deleted temporary file: {temp_video_path}")
+
