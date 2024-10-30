@@ -5,6 +5,7 @@ outputs
 
 # All file or folders start with tmp will be ignored
 tmp*  
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
