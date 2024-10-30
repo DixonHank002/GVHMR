@@ -1,1 +1,1 @@
-python demo_frames.py --frames debug/data/frames --output_root outputs/demo -s 
+python demo_frames.py --frames debug/data/C0196_05450-05530 --output_root outputs/demo -s 
